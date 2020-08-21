@@ -40,9 +40,18 @@ class Solution {
 private:
 
 public:
-	void function() {
-
-	}
+	vector<int> sortArrayByParity(vector<int>& A) {
+        int n = A.size();
+        int l = 0,r = (n - 1);
+        if(n <= 1) return A;
+        while(true) {
+            while(l < n && !(A[l] % 2)) l++;
+            while(r && (A[r] % 2)) r--;
+            if(l >= r) break;
+            swap(A[l++],A[r--]);
+        }
+        return A;
+    }
 };
 
 int main()
@@ -56,19 +65,38 @@ int main()
 	  freopen("out.txt", "w", stdout);
   #endif
   */
-  Solution s;
-  //Solution* s = new Solution();
+  // Solution s;
+  Solution* s = new Solution();
   // int row,col;
   // cin>>row>>col;
-  vi arr;
-  // vvi grid(row);
   string str;
-  cin>>str;
+  test_case {
+    vi arr,out;
+    cin>>str;
+    str.erase(remove(str.begin(),str.end(),'['),str.end());
+    str.erase(remove(str.begin(),str.end(),']'),str.end());
+    stringstream ss(str);
+    for(int t;ss >> t;) {
+      arr.pb(t);
+      if(ss.peek() == ',') {
+        ss.ignore();
+      }
+    }
+    
+    out = s->sortArrayByParity(arr);
+    for(auto& x : out) {
+	    cout<<x<<"\t";
+    }
+    cout<<endl;
+  }
+  
+  // vvi grid(row);
+  
+  
   //str = str.substr(1,str.length()-1);
-  str.erase(remove(str.begin(),str.end(),'['),str.end());
-  str.erase(remove(str.begin(),str.end(),']'),str.end());
-  str.erase(remove(str.begin(),str.end(),'"'),str.end());
-  stringstream ss(str);
+  
+  // str.erase(remove(str.begin(),str.end(),'"'),str.end());
+ 
 
 /*
   for(int t;ss >> t;) {
@@ -107,7 +135,7 @@ int main()
   }
   */
   //cout<<s->function()<<endl;
-	cout<<s.function()<<"\n";
+
 	
   return 0;
 }
