@@ -56,8 +56,8 @@ int main()
 	  freopen("out.txt", "w", stdout);
   #endif
   */
-  Solution s;
-  //Solution* s = new Solution();
+  // Solution s;
+  Solution* s = new Solution();
   // int row,col;
   // cin>>row>>col;
   vi arr;
