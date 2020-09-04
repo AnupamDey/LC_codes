@@ -105,9 +105,10 @@ int main()
   for(auto& x : arr) {
 	cout<<x<<"\t";
   }
+  cout<<"\n";
   */
-  //cout<<s->function()<<endl;
-	cout<<s.function()<<"\n";
+  cout<<s->function()<<endl;
+	// cout<<s.function()<<"\n";
 	
   return 0;
 }
