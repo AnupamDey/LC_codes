@@ -12,7 +12,7 @@ using namespace std;
 #define fo(i,n) for (int i = 0; i < n; ++i) 
 #define rfo(i,n) for (int i = n; i >= 0; --i)
 #define fo1(i,n) for (int i = 1; i <= n; ++i)
-#define test_case int T; cin>>T; fo1(i,T)
+#define test_case int T; cin>>T; fo1(t,T)
 
 const int MAX_N = 1e5 + 5;
 const int MAX_L = 20; // ~ Log N
@@ -48,7 +48,7 @@ public:
 int main()
 {
   ios_base::sync_with_stdio(false);
-  cin.tie(NULL);
+  cin.tie(NULL);cout.tie(NULL);
   /*
   #ifndef ONLINE_JUDGE
 	  freopen("in.txt", "r", stdin);
@@ -58,57 +58,59 @@ int main()
   */
   // Solution s;
   Solution* s = new Solution();
-  // int row,col;
-  // cin>>row>>col;
-  vi arr;
-  // vvi grid(row);
   string str;
-  cin>>str;
-  //str = str.substr(1,str.length()-1);
-  str.erase(remove(str.begin(),str.end(),'['),str.end());
-  str.erase(remove(str.begin(),str.end(),']'),str.end());
-  str.erase(remove(str.begin(),str.end(),'"'),str.end());
-  stringstream ss(str);
+  test_case {
+    cout << "Case #" << t  << ": "<<"\n";
+    // int row,col;
+    // cin>>row>>col;
+    // vvi grid(row,vi(col,0));
+     
+    // for(int i=0;i<row;++i) {
+    //   for(int j=0;j<col;++j) {
+    //       cin>>grid[i][j];
+    //   }
+    // }
+    
+    cin>>str;
+    str.erase(remove(str.begin(),str.end(),'['),str.end());
+    str.erase(remove(str.begin(),str.end(),']'),str.end());
+    str.erase(remove(str.begin(),str.end(),'"'),str.end());
+    stringstream ss(str);
+    vi arr;
+    
+  /*
+    for(int t;ss >> t;) {
+    arr.pb(t);
+    if(ss.peek() == ',') {
+      ss.ignore();
+    }
+    }
+  */
+    /*
+    while(ss.good()) {
+    string sub;
+    getline(ss,sub,',');
+    arr.push_back(sub);
+    }
+    */
+    
+    //int row = grid.size();
+    //int col = grid[0].size();
+    // for(int i=0;i<row;++i) {
+    //   for(int j=0;j<col;++j) {
+    //       cout<<grid[i][j]<<"\t";
+    //   }
+    //  cout<<"\n";
+    // }
+   
+    /*
+    for(auto& x : arr) {
+      cout<<x<<"\t";
+    }
+    cout<<"\n";
+    */
+    cout<<s->function()<<endl;
+  }
 
-/*
-  for(int t;ss >> t;) {
-	arr.pb(t);
-	if(ss.peek() == ',') {
-		ss.ignore();
-	}
-  }
-*/
-   /*
-   while(ss.good()) {
-	string sub;
-	getline(ss,sub,',');
-	arr.push_back(sub);
-  }
-  */
-  
-  //int row = grid.size();
-  //int col = grid[0].size();
-  // for(int i=0;i<row;++i) {
-  //   for(int j=0;j<col;++j) {
-  //       printf("%d\t",grid[i][j]);
-  //   }
-  //   printf("\n");
-  // }
-  /*
-  for(int i=0;i<row;++i) {
-     for(int j=0;j<col;++j) {
-         scanf("%d",&grid[i][j]);
-     }
-  }
-  */
-  /*
-  for(auto& x : arr) {
-	cout<<x<<"\t";
-  }
-  cout<<"\n";
-  */
-  cout<<s->function()<<endl;
-	// cout<<s.function()<<"\n";
-	
   return 0;
 }
